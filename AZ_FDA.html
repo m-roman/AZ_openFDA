@@ -184,7 +184,7 @@ div#notebook {
 <span class="n">requests</span><span class="o">.</span><span class="n">packages</span><span class="o">.</span><span class="n">urllib3</span><span class="o">.</span><span class="n">disable_warnings</span><span class="p">()</span>
 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
@@ -196,6 +196,59 @@ div#notebook {
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Package-summary">Package summary<a class="anchor-link" href="#Package-summary">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="s">&#39;pandas&#39;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">__version__</span>
+<span class="k">print</span> <span class="s">&#39;pycountry 17.5.14&#39;</span>
+<span class="k">print</span> <span class="s">&#39;requests&#39;</span><span class="p">,</span> <span class="n">requests</span><span class="o">.</span><span class="n">__version__</span> 
+<span class="k">print</span> <span class="s">&#39;matplotlib 1.5.0&#39;</span>
+<span class="k">print</span> <span class="s">&#39;numpy&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> pandas 0.19.1
+pycountry 17.5.14
+requests 2.18.1
+matplotlib 1.5.0
+numpy 1.11.2
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Distribution-of-adverse-effects-by-countries">Distribution of adverse effects by countries<a class="anchor-link" href="#Distribution-of-adverse-effects-by-countries">&#182;</a></h3>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1565,10 +1618,7 @@ This amounts to less than 0.04% of the entries of the largest contributor (USA) 
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-
-
-<span class="n">exponential</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">country_counts</span><span class="p">))))</span>
+<div class=" highlight hl-ipython2"><pre><span class="n">exponential</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">country_counts</span><span class="p">))))</span>
 <span class="n">exponential</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">0.11</span><span class="o">*</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">exponential</span><span class="p">]</span> 
 <span class="n">exponential</span> <span class="o">=</span> <span class="p">[</span><span class="n">country_counts</span><span class="o">.</span><span class="n">total</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">exponential</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">exponential</span><span class="p">]</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">country_counts</span><span class="p">)),</span> <span class="n">country_counts</span><span class="p">[</span><span class="s">&#39;total&#39;</span><span class="p">],</span> <span class="s">&#39;b.&#39;</span><span class="p">)</span>
